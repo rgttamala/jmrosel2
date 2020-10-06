@@ -18,6 +18,7 @@ class AdminSeeder extends Seeder
             'pin_code' => 1234,
             'rates_id' => 1,
             'permissions' => 'admin',
+            'created_at' => '2020-10-06 23:20:25',
             ]);
     }
 }

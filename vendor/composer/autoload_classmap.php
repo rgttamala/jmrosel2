@@ -17,6 +17,8 @@ return array(
     'App\\DriverPayroll' => $baseDir . '/app/DriverPayroll.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Helper' => $baseDir . '/app/Helper.php',
+    'App\\HelperPayroll' => $baseDir . '/app/HelperPayroll.php',
+    'App\\HelperRates' => $baseDir . '/app/HelperRates.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\ApiController' => $baseDir . '/app/Http/Controllers/APIController.php',
     'App\\Http\\Controllers\\AttendanceController' => $baseDir . '/app/Http/Controllers/AttendanceController.php',

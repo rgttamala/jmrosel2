@@ -441,6 +441,8 @@ class ComposerStaticInita4cee284482defcab48d480167c63d55
         'App\\DriverPayroll' => __DIR__ . '/../..' . '/app/DriverPayroll.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Helper' => __DIR__ . '/../..' . '/app/Helper.php',
+        'App\\HelperPayroll' => __DIR__ . '/../..' . '/app/HelperPayroll.php',
+        'App\\HelperRates' => __DIR__ . '/../..' . '/app/HelperRates.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/APIController.php',
         'App\\Http\\Controllers\\AttendanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/AttendanceController.php',

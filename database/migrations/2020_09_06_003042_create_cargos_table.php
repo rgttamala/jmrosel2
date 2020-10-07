@@ -22,6 +22,7 @@ class CreateCargosTable extends Migration
             $table->string('route');
             $table->string('trucktype');
             $table->string('cargoname');
+            $table->string('remarks');
             $table->timestamps();
         });
     }

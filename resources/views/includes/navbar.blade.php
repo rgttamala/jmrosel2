@@ -34,9 +34,9 @@
                             </p>
                         </li>
                         <li class="user-footer">
-                            <div class="pull-left">
+                            {{-- <div class="pull-left">
                                 <a href="#profile" data-toggle="modal" class="btn btn-default btn-flat" id="admin_profile">Update</a>
-                            </div>
+                            </div> --}}
 
 
                         <div class="pull-right">

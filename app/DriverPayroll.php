@@ -32,5 +32,7 @@ class DriverPayroll extends Model
     public function payroll(){
         return $this->belongsTo(Deduction::class, 'payroll_id');
     }
+
+   
     
 }

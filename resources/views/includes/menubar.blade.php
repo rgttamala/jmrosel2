@@ -53,7 +53,7 @@
                     <li><a href="/overtime"><i class="fa fa-circle-o"></i> <span>Overtime</span></a></li> --}}
                     <li><a href="/attendance"><i class="fa fa-calendar"></i> <span>Attendance</span></a></li>
                     <li><a href="/leave"><i class="fa fa-calendar"></i> <span>Leave</span></a></li>
-                    <li><a href="/check"><i class="fa fa-calendar"></i> <span>Check</span></a></li>
+                    {{-- <li><a href="/check"><i class="fa fa-calendar"></i> <span>Check</span></a></li> --}}
                    
                 </ul>
                 

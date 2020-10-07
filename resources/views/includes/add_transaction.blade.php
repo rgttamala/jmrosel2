@@ -69,6 +69,8 @@
                                 </div>
                             </div>
 
+                          
+
                             
                             <div class="form-group" hidden>
                                 <label for="schedule" class="col-sm-3 control-label">50%</label>
@@ -157,6 +159,14 @@
                             
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" id="subcon_full_date" name="subcon_full_date">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="remarks" class="col-sm-3 control-label">Remarks</label>
+        
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="remarks" name="remarks" required>
                                 </div>
                             </div>
 

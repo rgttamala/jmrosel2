@@ -20,7 +20,7 @@
         @include('includes.messages')
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-20">
                 <div class="box">
                     <div class="box-header with-border">
                         <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
@@ -37,11 +37,11 @@
                                 <th style="text-align: center">50%</th>
                                 <th>Full Payment</th>
                                 <th>Client Balance</th>
-                              
                                 <th>Subcon Rate</th>
                                 <th style="text-align: center">50%</th>
                                 <th>Full Payment</th>
                                 <th>Subcon Balance</th>
+                                <th>Remarks</th>
                                 <th>Tools</th>
                             </thead>
                             <tbody>
@@ -57,7 +57,7 @@
                                 <td>₱{{ number_format ($transaction->client_rate, 2) }}</td>
 
                             @if ($transaction->client_partial == 'Paid')
-                                <td style="color: green">✔ {{ date('M-d-yy', strtotime($transaction->client_partial_date)) }} ||  ₱{{ number_format ($transaction->client_partial_amount, 2) }}</td> 
+                                <td style="color: green">✔  ₱{{ number_format ($transaction->client_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_partial_date)) }} </td> 
                             @endif
 
                             @if ($transaction->client_partial == 'Unpaid')
@@ -65,7 +65,7 @@
                             @endif
 
                             @if ($transaction->client_full == 'Paid')
-                             <td style="color: green">✔ {{ date('M-d-yy', strtotime($transaction->client_full_date)) }} ||  ₱{{ number_format ($transaction->client_full_amount, 2) }}</td> 
+                             <td style="color: green">✔ ₱{{ number_format ($transaction->client_full_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_full_date)) }}   </td> 
                                 @endif
 
                             @if ($transaction->client_full == 'Unpaid')
@@ -82,16 +82,10 @@
                             @endif
                             
 
-                       
-
-
-
-
-
                             <td>₱{{ number_format ($transaction->subcon_rate, 2) }}</td>
 
                         @if ($transaction->subcon_partial == 'Paid')
-                            <td style="color: green">✔ {{ date('M-d-yy', strtotime($transaction->subcon_partial_date)) }} |  ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} </td> 
+                            <td style="color: green">✔ ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_partial_date)) }}</td> 
                         @endif
 
                         @if ($transaction->subcon_partial == 'Unpaid')
@@ -99,7 +93,7 @@
                         @endif
 
                         @if ($transaction->subcon_full == 'Paid')
-                        <td style="color: green">✔ {{ date('M-d-yy', strtotime($transaction->subcon_full_date)) }} |  ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} </td> 
+                        <td style="color: green">✔ ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_full_date)) }}</td> 
                             @endif
 
                         @if ($transaction->subcon_full == 'Unpaid')
@@ -115,6 +109,7 @@
                             <td>₱{{ number_format ($transaction->subcon_balance, 2) }}</td>
                         @endif
 
+                        <td>{{$transaction->remarks}}</td>
 
 
 
@@ -133,10 +128,10 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th bgcolor="skyblue">₱ {{ number_format($clientRate, 2) }}</th>
+                            <th bgcolor="green" style="color: white">₱ {{ number_format($clientRate, 2) }}</th>
                             <th></th>
                             <th></th>
-                            <th bgcolor="skyblue">₱ {{ number_format($clientBalance, 2) }}</th>
+                            <th bgcolor="green" style="color: white">₱ {{ number_format($clientBalance, 2) }}</th>
                          
                             <th bgcolor="skyblue">₱ {{ number_format($subconRate, 2) }}</th>
                             <th></th>

@@ -6,6 +6,7 @@ use App\User;
 use App\Latetime;
 use App\Attendance;
 use App\Driver;
+use App\DriverPayroll;
 use App\Helper;
 use App\Payroll;
 use App\Transaction;
@@ -24,6 +25,7 @@ class AdminController extends Controller
         $helpers = count(Helper::all());
         $drivers = count(Driver::all());
         $payrolls = Payroll::take(5)->get();
+        $driverPayrolls = DriverPayroll::take(5)->get();
         $transactions = Transaction::take(5)->get();
         $AllAttendance = count(Attendance::whereAttendance_date(date("Y-m-d"))->get());
         $ontimeEmp = count(Attendance::whereAttendance_date(date("Y-m-d"))->whereStatus('1')->get());
@@ -39,6 +41,7 @@ class AdminController extends Controller
         $data = [$totalEmp-1, $helpers, $drivers, $ontimeEmp, $latetimeEmp, $percentageOntime];
         return view('admin.index')
         ->with('payrolls', $payrolls)
+        ->with('driverPayrolls', $driverPayrolls)
         ->with('transactions', $transactions)
         ->with(['data' => $data]);
     }

@@ -125,15 +125,13 @@
                             <p>
                                 <strong>Subtotal: </strong>
                             </p>
-                            <p>
-                                <strong>Tax: </strong>
-                            </p></td>
+                           
                             <td class="text-center">
                             <p>
                             <strong>{{$payroll->subtotal}}</strong>
                             </p>
                             <p>
-                                <strong>0</strong>
+                                
                             </p></td>
                         </tr>
                         <tr>

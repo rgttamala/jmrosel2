@@ -34,8 +34,8 @@
                                 <th>Status</th>
                                 <th>Total</th>
                                 <th>Payslip</th>
-                                <th>Edit</th>	
-                                
+                                {{-- <th>Edit</th>	
+                                 --}}
                             </thead>		
                                 
                             <tbody>
@@ -66,9 +66,9 @@
                                             </td>  
                                             
                                             
-                                            <td>
+                                            {{-- <td>
                                                 <a href="{{ route('payrolls.edit', ['id' => $payroll->id]) }}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
-                                            </td>   
+                                            </td>    --}}
                                                 
                                         </tr>
                                     @endforeach

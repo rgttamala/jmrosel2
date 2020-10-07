@@ -163,92 +163,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Latest Issued Payroll (Driver)</h3>
-                        <div class="box-tools pull-right">
-                                
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            <br>
-                            <table class= "table table-hover">
-                                <thead>	
-                                    <tr>
-                                        <th>Date-issued</td>
-                                        <th>Employee Name</th>
-                                        <th>Hours</th>
-                                        <th>Salary</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>		
-                                    
-                                <tbody>
-                                    @foreach ($payrolls as $item)
-                                        <tr>		
-                                            <td>{{ date('M-d-yy', strtotime($item->dateissued)) }}</td>   
-                                            <td>{{ $item->user->name }}</td>
-                                            <td>{{ $item->workedhours }} hrs</td>
-                                            <td>₱ {{ $item->salary }}</td>
-                                            <td>{{ $item->status }}</td>
-                                            <strong><td>₱ {{ $item->subtotal }}</td></strong>
-                                        </tr>
-                                    @endforeach
-                                </tbody>							
-                            </table>
-                            <div id="legend" class="text-center"></div>
-                            <canvas id="barChart" style="height:125px"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Latest Issued Payroll (Helper)</h3>
-                        <div class="box-tools pull-right">
-                                
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            <br>
-                            <table class= "table table-hover">
-                                <thead>	
-                                    <tr>
-                                        <th>Date-issued</td>
-                                        <th>Employee Name</th>
-                                        <th>Hours</th>
-                                        <th>Salary</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>		
-                                    
-                                <tbody>
-                                    @foreach ($payrolls as $item)
-                                        <tr>		
-                                            <td>{{ date('M-d-yy', strtotime($item->dateissued)) }}</td>   
-                                            <td>{{ $item->user->name }}</td>
-                                            <td>{{ $item->workedhours }} hrs</td>
-                                            <td>₱ {{ $item->salary }}</td>
-                                            <td>{{ $item->status }}</td>
-                                            <strong><td>₱ {{ $item->subtotal }}</td></strong>
-                                        </tr>
-                                    @endforeach
-                                </tbody>							
-                            </table>
-                            <div id="legend" class="text-center"></div>
-                            <canvas id="barChart" style="height:125px"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
 
             <div class="col-xs-6">
                 <div class="box">
@@ -269,7 +184,6 @@
                                         <th>Destination</td>
                                         <th>cargo</td>
                                         <th>Trucking</td>
-                                        <th>Subs</td>
                                         <th>Plate Number</td>
                                       
                                        
@@ -284,7 +198,7 @@
                                         <td>{{ $trans->cargo->destination }}</td>
                                         <td>{{ $trans->cargo->cargoname }}</td>
                                         <td>{{ $trans->trucking }}</td>
-                                        <td>{{ $trans->subs }}</td>
+                                        <td>{{ $trans->platenumber }}</td>
                                     </tr>
 
                                         

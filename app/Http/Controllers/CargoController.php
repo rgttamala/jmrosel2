@@ -51,6 +51,7 @@ class CargoController extends Controller
         $cargos->cargoname = $request->cargoname;
         $cargos->driver_id = $request->driver;
         $cargos->helper_id = $request->helper;
+        $cargos->remarks = $request->remarks;
         $cargos->save();
         return redirect()->route('cargos.index')->with('success', 'Cargo Rates Has Been Created Successfully');
     }
@@ -93,6 +94,7 @@ class CargoController extends Controller
         $cargo->cargoname = $request->cargoname;
         $cargo->driver_id = $request->driver;
         $cargo->helper_id = $request->helper;
+        $cargo->remarks = $request->remarks;
         $cargo->save();
         return redirect()->route('cargos.index')->with('success', 'Cargo Has Been Updated Successfully');
     }

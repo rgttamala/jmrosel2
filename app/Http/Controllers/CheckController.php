@@ -33,6 +33,7 @@ class CheckController extends Controller
         $hours = $to->diffInHours($from);
         // print_r($diff_in_minutes);
 
+        
        return view('admin.check')
        ->with('checks', $checks)
        ->with('hours', $hours);

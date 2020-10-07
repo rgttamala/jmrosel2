@@ -43,7 +43,7 @@ class TransactionController extends Controller
 
         return view('admin.transaction')->with(
             [
-            'transactions'=> Transaction::all(), 
+            'transactions'=> Transaction::orderBy('created_at', 'DESC')->get(), 
             'cargos'=>Cargo::all(),
             'clientRate' => $clientRate,
             'clientBalance' => $clientBalance,
@@ -77,6 +77,7 @@ class TransactionController extends Controller
         $transactions->platenumber = $request->platenumber;
         $transactions->client_rate = $request->client_rate;
         $transactions->subcon_rate = $request->subcon_rate;
+        $transactions->remarks = $request->remarks;
 
 
         $transactions->client_partial = $request->client_partial;
@@ -129,7 +130,7 @@ class TransactionController extends Controller
         }
 
         if ($transaction->client_partial == 'Paid' ) {
-            $transaction->client_balance = $transaction->client_rate * .50;
+            $transaction->client_balance = $transaction->client_rate - $transaction->client_partial_amount;
             $transaction->save();
         }
 
@@ -141,15 +142,13 @@ class TransactionController extends Controller
 
         
 
-
-
         if ($transaction->subcon_partial == 'Unpaid') {
             $transaction->subcon_balance = $transaction->subcon_rate;
             $transaction->save();
         }
 
         if ($transaction->subcon_partial == 'Paid' ) {
-            $transaction->subcon_balance = $transaction->subcon_rate * .50;
+            $transaction->subcon_balance = $transaction->subcon_rate - $transaction->subcon_partial_amount;
             $transaction->save();
         }
 

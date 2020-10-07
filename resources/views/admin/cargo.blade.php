@@ -49,7 +49,7 @@
                                     <td>{{$cargo->cargoname}}</td>
                                     <td>{{$cargo->driver->drivername}}</td>
                                     <td>{{$cargo->helper->helpername}}</td>
-                                    <td> Remarks Sample </td>
+                                    <td>{{$cargo->remarks}}</td>
             
                                     <td>
                                         <a href="#edit{{$cargo->id}}" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>

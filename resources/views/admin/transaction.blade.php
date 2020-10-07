@@ -121,22 +121,21 @@
                                     <a href="#edit{{$transaction->id}}" data-toggle="modal" class="btn btn-success btn-sm edit"><i class='fa fa-edit'></i>Payments</a>
                                 </td>
                              </tr>
-                                 
                              @endforeach
                             </tbody>
                             <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th bgcolor="green" style="color: white">₱ {{ number_format($clientRate, 2) }}</th>
+                            <th bgcolor="green" style="color: white">₱{{ number_format($clientRate, 2) }}</th>
                             <th></th>
                             <th></th>
-                            <th bgcolor="green" style="color: white">₱ {{ number_format($clientBalance, 2) }}</th>
+                            <th bgcolor="green" style="color: white">₱{{ number_format($clientBalance, 2) }}</th>
                          
-                            <th bgcolor="skyblue">₱ {{ number_format($subconRate, 2) }}</th>
+                            <th bgcolor="skyblue">₱{{ number_format($subconRate, 2) }}</th>
                             <th></th>
                             <th></th>
-                            <th bgcolor="skyblue">₱ {{ number_format($subconBalance, 2) }}</th>
+                            <th bgcolor="skyblue">₱{{ number_format($subconBalance, 2) }}</th>
                         </table>
                     </div>
                 </div>

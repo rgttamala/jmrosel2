@@ -62,12 +62,14 @@ class HelperPayrollController extends Controller
      */
     public function store(Request $request, $id){
         
-        //driver rates
-
         $deductions = new HelperPayroll();
+        $deductions->sss = $request->sss;
+        $deductions->philhealth = $request->philhealth;
         $deductions->dateissued = $request->dateissued;
         $deductions->payperiodstart = $request->payperiodstart;
         $deductions->payperiodend = $request->payperiodend;
+        $deductions->deduction = $request->deduction;
+        $deductions->deductionremarks = $request->deductionremarks;
         $deductions->totalcashadvance = 0;
         $deductions->totalrates = 0;
         $deductions->subtotal = 0;
@@ -87,9 +89,32 @@ class HelperPayrollController extends Controller
             $data->cashadvance = $request->cashadvance[$key];
             $data->datecashadvance = $request->datecashadvance[$key];
             $data->save();
-            //$driver_ratesId = $data->id;
          }
-        //driver payroll
+
+         $totalRates = DB::table('helper_rates')
+         ->leftJoin('helper_payroll', 'helper_rates.payroll_id', 'helper_payroll.id')
+         ->select('helper_payroll.*','helper_rates.*')
+         ->where('payroll_id', '=', $helperratesId)
+         ->sum('rate');
+
+         $totalcashadvance = DB::table('helper_rates')
+         ->leftJoin('helper_payroll', 'helper_rates.payroll_id', 'helper_payroll.id')
+         ->select('helper_payroll.*','helper_rates.*')
+         ->where('payroll_id', '=', $helperratesId)
+         ->sum('cashadvance');
+         
+         $subtotal = $totalRates - $totalcashadvance;
+        
+         $storeTotalRates = HelperPayroll::find($helperratesId);
+         $totalpayroll = $subtotal - $storeTotalRates->sss - $storeTotalRates->philhealth - $storeTotalRates->deduction;
+         $storeTotalRates->totalrates = $totalRates;
+         $storeTotalRates->totalcashadvance = $totalcashadvance;
+         $storeTotalRates->subtotal = $subtotal;
+         $storeTotalRates->totalpayroll = $totalpayroll;
+         
+         $storeTotalRates->save();
+     
+        
         
          return redirect()->route('helperpayrolls.show',['id'=>$id])->with('success', 'Payroll Helper Has Been Created Successfully');
 
@@ -109,7 +134,7 @@ class HelperPayrollController extends Controller
     public function receipt($id){
         
         $payrollId = $id;
-        $driverpayroll = HelperRates::findOrFail($id);
+        $helperpayroll = HelperRates::findOrFail($id);
         $payroll = HelperPayroll::all();
 
        
@@ -122,8 +147,10 @@ class HelperPayrollController extends Controller
         return view('admin.helper_payroll_receipt')
         ->with('payrolldetails', $payrolldetails)
         ->with('payroll', $payroll)
-        ->with('driverpayroll', $driverpayroll);
+        ->with('helperpayroll', $helperpayroll);
+        
     }
+    
 
     /**
      * Show the form for editing the specified resource.

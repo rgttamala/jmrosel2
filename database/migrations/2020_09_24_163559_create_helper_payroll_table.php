@@ -16,6 +16,8 @@ class CreateHelperPayrollTable extends Migration
         Schema::create('helper_payroll', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('dateissued');
+            $table->decimal('sss');
+            $table->decimal('philhealth');
             $table->date('payperiodstart');
             $table->date('payperiodend');
             $table->integer('deduction');

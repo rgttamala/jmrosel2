@@ -41,7 +41,7 @@
                                 <th>Total Cash Advance</th>
                                 <th>Total Payroll</th>
                                 <th>Payslip</th>
-                                <th>Edit</th>	
+                               
                                 
                             </thead>		
                                 
@@ -64,9 +64,9 @@
                                 </td>  
                                 
                                 
-                                <td>
+                                {{-- <td>
                                     <a href="" data-toggle="modal" class="btn btn-success btn-sm edit btn-flat"><i class='fa fa-edit'></i> Edit</a>
-                                </td>   
+                                </td>    --}}
                                 @endforeach
                                </tr>
                                 

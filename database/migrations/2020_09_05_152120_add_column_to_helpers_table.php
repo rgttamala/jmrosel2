@@ -15,8 +15,8 @@ class AddColumnToHelpersTable extends Migration
     {
         Schema::table('helpers', function (Blueprint $table) {
             $table->string('helpername')->after('id');
-            $table->string('sss')->after('helpername');
-            $table->string('philhealth')->after('sss');
+            $table->decimal('sss')->after('helpername');
+            $table->decimal('philhealth')->after('sss');
         });
     }
 

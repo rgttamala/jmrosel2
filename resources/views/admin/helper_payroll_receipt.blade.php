@@ -15,7 +15,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Employees</li>
+            <li>Helper</li>
             <li class="active">Payroll</li>
         </ol>
     </section>
@@ -116,14 +116,17 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <pre class="tab">SSS:           ₱{{$cargo->datetrip}}</pre>
+                        <pre class="tab">Subtotal:       ₱{{$cargo->subtotal}}</pre>
+                        
+                        <pre class="tab">SSS:           -₱{{$cargo->sss}}</pre>
+                        
+                        <pre class="tab">Philhealth:    -₱{{$cargo->philhealth}}</pre>
+                        
+                        <pre class="tab">Deduction:     -₱{{$cargo->deduction}} <br>Remarks: {{$cargo->deductionremarks}}</pre>
+                        
                        
                         
-                        <pre class="tab">Philhealth:    ₱{{$cargo->datetrip}}</pre>
-                        
-                        <pre class="tab">Deduction:     ₱{{$cargo->datetrip}}</pre>
-                        
-                        <pre class="tab">Deduction Remarks:   {{$cargo->datetrip}}</pre>
+                        <pre class="tab"></pre>
                       </tr>
                     </tr>
                     <tr>
@@ -133,7 +136,7 @@
                         <th scope="col"></th>
                         <th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="col"></th>
                         <th scope="col"></th><th scope="col"></th><th scope="col"></th>
-                     <th> <td style="font-size: 20px"><strong>Total Payroll: {{$cargo->totalpayroll}}</strong</td></th>
+                     <th> <td style="font-size: 20px"><strong>Total Payroll: ₱ {{$cargo->totalpayroll}}</strong></td></th>
                     </tr>
                      
                     </tbody>

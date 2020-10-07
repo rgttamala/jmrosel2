@@ -15,8 +15,8 @@ class AddColumnToDriversTable extends Migration
     {
         Schema::table('drivers', function (Blueprint $table) {
             $table->string('drivername')->after('id');
-            $table->string('sss')->after('drivername');
-            $table->string('philhealth')->after('sss');
+            $table->decimal('sss')->after('drivername');
+            $table->decimal('philhealth')->after('sss');
         });
     }
 

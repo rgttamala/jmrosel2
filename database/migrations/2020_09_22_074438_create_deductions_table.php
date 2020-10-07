@@ -15,8 +15,8 @@ class CreateDeductionsTable extends Migration
     {
         Schema::create('driver_payroll', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('sss');
-            $table->integer('philhealth');
+            $table->decimal('sss');
+            $table->decimal('philhealth');
             $table->date('dateissued');
             $table->date('payperiodstart');
             $table->date('payperiodend');

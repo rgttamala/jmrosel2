@@ -57,7 +57,7 @@
                         </div>
                     </div>
 
-                    
+                    <hr>
                     
                     <div class="form-group">
                         <label for="schedule" class="col-sm-3 control-label">Client Full</label>
@@ -151,6 +151,7 @@
                         </div>
                     </div>
                     
+                    <hr>
                     <div class="form-group">
                         <label for="schedule" class="col-sm-3 control-label">Subcon Full</label>
                     

@@ -15,8 +15,8 @@ class CreateCargosTable extends Migration
     {
         Schema::create('cargos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('driver_id')->unsigned();
-            $table->integer('helper_id')->unsigned();
+            $table->integer('driver_id')->unsigned()->nullable();
+            $table->integer('helper_id')->unsigned()->nullable();
             $table->string('origin');
             $table->string('destination');
             $table->string('route');

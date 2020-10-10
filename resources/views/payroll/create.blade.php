@@ -26,37 +26,35 @@
                                     <div class="form-group">
                                         <label for="date" class="col-sm-3 control-label">Period Start</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" id="payperiodstart" name="payperiodstart">
+                                            <input type="date" class="form-control" id="payperiodstart" name="payperiodstart" required>
                                         </div>
                                     </div> 
                                     
                                     <div class="form-group">
                                         <label for="date" class="col-sm-3 control-label">Period End</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" id="payperiodend" name="payperiodend">
+                                            <input type="date" class="form-control" id="payperiodend" name="payperiodend" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="amount" class="col-sm-3 control-label">Worked Hours</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="workedhours" name="workedhours">
+                                            <input type="number" class="form-control" id="workedhours" name="workedhours" required>
                                         </div>
                                     </div>
                 
                                     <div class="form-group">
                                         <label for="amount" class="col-sm-3 control-label">Cash Advance</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="amount" name="cashadvance">
+                                            <input type="number" class="form-control" id="amount" name="cashadvance" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="amount" class="col-sm-3 control-label">Salary</label>
                                         <div class="col-sm-9">
-                                            @foreach ($rates as $rate)
-                                                
-                                          
+                                            @foreach ($rates as $rate)              
                                         <input type="number" class="form-control" id="salary" name="salary" value="{{$rate->salary}}" readonly>
                                         </div>
                                     </div>
@@ -79,20 +77,20 @@
                                     <div class="form-group">
                                         <label for="amount" class="col-sm-3 control-label">Deductions</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" id="deductions" name="deductions">
+                                            <input type="number" class="form-control" id="deductions" name="deductions" required>
                                         </div>
                                     </div>
                                   
                                     <div class="form-group">
                                         <label for="deductionremarks" class="col-sm-3 control-label">Deduction Remarks</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="deductionremarks" name="deductionremarks">
+                                            <input type="text" class="form-control" id="deductionremarks" name="deductionremarks" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="status" class="col-sm-3 control-label">Status</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="status" name="status">
+                                            <select class="form-control" id="status" name="status" required>
                                                 <option value="Paid">Paid</option>
                                                 <option value="Unpaid">Unpaid</option>
                                             </select>
@@ -101,7 +99,7 @@
                                     <div class="form-group">
                                         <label for="date" class="col-sm-3 control-label">Issued Date</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" id="dateissued" name="dateissued">
+                                            <input type="date" class="form-control" id="dateissued" name="dateissued" required>
                                         </div>
                                     </div>   
                                     <div class="form-group">

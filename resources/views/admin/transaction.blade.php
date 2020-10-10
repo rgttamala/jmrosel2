@@ -57,7 +57,7 @@
                                 <td>₱{{ number_format ($transaction->client_rate, 2) }}</td>
 
                             @if ($transaction->client_partial == 'Paid')
-                                <td style="color: green">✔  ₱{{ number_format ($transaction->client_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_partial_date)) }} </td> 
+                                <td style="color: green">✔₱{{ number_format ($transaction->client_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_partial_date)) }} </td> 
                             @endif
 
                             @if ($transaction->client_partial == 'Unpaid')
@@ -65,7 +65,7 @@
                             @endif
 
                             @if ($transaction->client_full == 'Paid')
-                             <td style="color: green">✔ ₱{{ number_format ($transaction->client_full_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_full_date)) }}   </td> 
+                             <td style="color: green">✔₱{{ number_format ($transaction->client_full_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->client_full_date)) }}   </td> 
                                 @endif
 
                             @if ($transaction->client_full == 'Unpaid')
@@ -85,7 +85,7 @@
                             <td>₱{{ number_format ($transaction->subcon_rate, 2) }}</td>
 
                         @if ($transaction->subcon_partial == 'Paid')
-                            <td style="color: green">✔ ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_partial_date)) }}</td> 
+                            <td style="color: green">✔₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_partial_date)) }}</td> 
                         @endif
 
                         @if ($transaction->subcon_partial == 'Unpaid')
@@ -93,7 +93,7 @@
                         @endif
 
                         @if ($transaction->subcon_full == 'Paid')
-                        <td style="color: green">✔ ₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_full_date)) }}</td> 
+                        <td style="color: green">✔₱{{ number_format ($transaction->subcon_partial_amount, 2) }} | {{ date('M-d-yy', strtotime($transaction->subcon_full_date)) }}</td> 
                             @endif
 
                         @if ($transaction->subcon_full == 'Unpaid')

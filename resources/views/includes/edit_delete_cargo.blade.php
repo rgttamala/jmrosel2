@@ -77,6 +77,14 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Remarks</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="remarks" name="remarks" value="{{$cargo->remarks}}" required>
+                        </div>
+                    </div>
+
 
                     
                     

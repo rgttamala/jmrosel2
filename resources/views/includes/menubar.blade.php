@@ -71,7 +71,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    @if(auth()->user()->rates_id == 1)
                     <li><a href="/transactions"><i class="fa fa-train"></i> Cargo Transactions</a></li>
+                    @endif
                     <li><a href="/cargos"><i class="fa fa-bus"></i> Cargo List</a></li>
                     <li><a href="/helpers"><i class="fa fa-user-plus"></i> Helper List</a></li>
                     <li><a href="/drivers"><i class="fa fa-universal-access"></i> Driver List</a></li>

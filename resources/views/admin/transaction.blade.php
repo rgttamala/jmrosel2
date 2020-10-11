@@ -109,14 +109,7 @@
                             <td>₱{{ number_format ($transaction->subcon_balance, 2) }}</td>
                         @endif
 
-                        <td>{{$transaction->remarks}}</td>
-
-
-
-
-
-                               
-                                
+                        <td>{{$transaction->remarks}}</td>  
                                 <td>
                                     <a href="#edit{{$transaction->id}}" data-toggle="modal" class="btn btn-success btn-sm edit"><i class='fa fa-edit'></i>Payments</a>
                                 </td>

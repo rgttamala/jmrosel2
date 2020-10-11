@@ -17,17 +17,18 @@ class RoleMiddleware
     {
         if (auth()->user() === null) {
             abort(403, 'Unauthorized action.');
+           
         }
+        return $next($request);
 
 
+        // $actions = request()->route()->getAction();
+        // $roles = isset($actions['roles']) ? $actions['roles'] : Null;
 
-        $actions = request()->route()->getAction();
-        $roles = isset($actions['roles']) ? $actions['roles'] : Null;
+        // if (auth()->user()->hasAnyRole($roles) && $roles !== Null) {
+        //     return $next($request);
+        // }
 
-        if (auth()->user()->hasAnyRole($roles) && $roles !== Null) {
-            return $next($request);
-        }
-
-        abort(403, 'Unauthorized action.');
+        // abort(403, 'Unauthorized action.');
     }
 }

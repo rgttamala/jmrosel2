@@ -135,7 +135,7 @@ class TransactionController extends Controller
         }
 
 
-        if ($transaction->client_full == 'Paid' && $transaction->client_partial == 'Paid' ) {
+        if ($transaction->client_full == 'Paid') {
             $transaction->client_balance = 0;
             $transaction->save();
         }
@@ -153,7 +153,7 @@ class TransactionController extends Controller
         }
 
 
-        if ($transaction->subcon_full == 'Paid' && $transaction->subcon_partial == 'Paid' ) {
+        if ($transaction->subcon_full == 'Paid') {
             $transaction->subcon_balance = 0;
             $transaction->save();
         }
@@ -167,6 +167,51 @@ class TransactionController extends Controller
         {
             $transaction->delete();
             return redirect()->route('transactions.index')->with('success', 'Transaction Has Been Deleted Successfully');
+        }
+
+        public function transactionReports()
+        {
+
+            $now = Carbon::now();
+            $start = date('Y-m-d');
+            $end = date('Y-m-d');
+         
+            if (isset($_GET['start']) && isset($_GET['end'])) {
+                $start = $_GET['start'];
+                $end = $_GET['end'];
+            }
+
+           
+           $transactions = DB::table('transactions')
+           ->join('cargos', 'transactions.cargo_id', 'cargos.id')
+           ->select('transactions.*', 'cargos.*')
+           ->whereBetween('traveldate', [$start, $end])
+           ->get();
+
+
+           $clientRate = DB::table('transactions')
+           ->whereBetween('traveldate', [$start, $end])
+           ->sum('client_rate');
+
+           $clientBalance = DB::table('transactions')
+           ->whereBetween('traveldate', [$start, $end])
+           ->sum('client_balance');
+
+
+           $subconRate = DB::table('transactions')
+           ->whereBetween('traveldate', [$start, $end])
+           ->sum('subcon_rate');
+
+           $subconBalance = DB::table('transactions')
+           ->whereBetween('traveldate', [$start, $end])
+           ->sum('subcon_balance');
+
+            return view('admin.transaction_reports')
+            ->with('transactions', $transactions)
+            ->with('clientRate', $clientRate)
+            ->with('clientBalance', $clientBalance)
+            ->with('subconRate', $subconRate)
+            ->with('subconBalance', $subconBalance);
         }
 
 

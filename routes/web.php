@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'Role'], 'roles' => ['admin']], function () {
+    Route::get('/transactions/reports', 'TransactionController@transactionReports')->name('transaction.reports');
     Route::resource('/transactions', 'TransactionController');
     Route::POST('/transactions/getTransaction','TransactionController@getTransaction');
     Route::resource('/employees', 'EmployeeController');

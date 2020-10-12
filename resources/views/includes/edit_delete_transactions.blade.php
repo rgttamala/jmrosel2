@@ -67,16 +67,16 @@
                             @if ($transaction->client_full == 'Unpaid')
 
                             <select class="form-control" id="client_full" name="client_full" required>
-                                <option value="Unpaid" selected>Unpaid 50%</option>
-                                <option value="Paid">Paid 50%</option>
+                                <option value="Unpaid" selected>Unpaid</option>
+                                <option value="Paid">Paid</option>
                             </select>
 
                             @endif
                             
                             @if ($transaction->client_full == 'Paid')
                                  <select class="form-control" id="client_full" name="client_full" required>
-                                <option value="Unpaid">Unpaid 50%</option>
-                                <option value="Paid" selected>Paid 50%</option>
+                                <option value="Unpaid">Unpaid</option>
+                                <option value="Paid" selected>Paid</option>
                             </select>
 
                             @endif
@@ -160,16 +160,16 @@
                             @if ($transaction->client_full == 'Unpaid')
 
                             <select class="form-control" id="subcon_full" name="subcon_full" required>
-                                <option value="Unpaid" selected>Unpaid 50%</option>
-                                <option value="Paid">Paid 50%</option>
+                                <option value="Unpaid" selected>Unpaid</option>
+                                <option value="Paid">Paid</option>
                             </select>
 
                             @endif
                             
                             @if ($transaction->client_full == 'Paid')
                                  <select class="form-control" id="subcon_full" name="subcon_full" required>
-                                <option value="Unpaid">Unpaid 50%</option>
-                                <option value="Paid" selected>Paid 50%</option>
+                                <option value="Unpaid">Unpaid</option>
+                                <option value="Paid" selected>Paid</option>
                             </select>
 
                             @endif

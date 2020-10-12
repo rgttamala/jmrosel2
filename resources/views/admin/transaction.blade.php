@@ -24,12 +24,39 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{route('transaction.reports')}}" class="btn btn-warning btn-sm" target="_blank">Transaction Reports</a>
+                           
                     </div>
+
+                    
+                    <div>
+                        <table id="example2" class="table table-bordered>">
+                            <thead>
+                                <tr>
+                              
+                                <th>Client Rate:</th>
+                                <th bgcolor="green" style="color: white">₱{{ number_format($clientRate, 2) }}</th>
+                                <th></th>
+                                <th>Client Balance:</th>
+                                <th bgcolor="green" style="color: white">₱{{ number_format($clientBalance, 2) }}</th>
+                                <th>Subcon Rate:</th>
+                                <th bgcolor="skyblue">₱{{ number_format($subconRate, 2) }}</th>
+                                <th>Subcon Balance: </th>
+                                <th bgcolor="skyblue">₱{{ number_format($subconBalance, 2) }}</th>
+                                <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    
                     <div class="box-body">
+                        
                         <table id="example1" class="table table-bordered>">
-                          
+                           
                             <thead>
                                 <th>Travel Date</th>
+                                <th>Plate Number</th>
                                 <th>Cargo</th>
                                 <th>Docs</th>
                                 <th>Trucking</th>
@@ -45,12 +72,14 @@
                                 <th>Tools</th>
                             </thead>
                             <tbody>
+                                
                                
-
+                                
                              @foreach ($transactions as $transaction)
 
                              <tr>
                                 <td>{{ date('M-d-yy', strtotime($transaction->traveldate)) }}</td> 
+                                <td>{{$transaction->platenumber}}</td>
                                 <td>{{$transaction->cargo->origin}} - {{$transaction->cargo->destination}} ({{$transaction->cargo->cargoname}})</td>
                                 <td>{{$transaction->docs}}</td>
                                 <td>{{$transaction->trucking}}</td>
@@ -116,19 +145,7 @@
                              </tr>
                              @endforeach
                             </tbody>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th bgcolor="green" style="color: white">₱{{ number_format($clientRate, 2) }}</th>
-                            <th></th>
-                            <th></th>
-                            <th bgcolor="green" style="color: white">₱{{ number_format($clientBalance, 2) }}</th>
-                         
-                            <th bgcolor="skyblue">₱{{ number_format($subconRate, 2) }}</th>
-                            <th></th>
-                            <th></th>
-                            <th bgcolor="skyblue">₱{{ number_format($subconBalance, 2) }}</th>
+                           
                         </table>
                     </div>
                 </div>

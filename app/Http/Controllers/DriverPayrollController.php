@@ -51,10 +51,12 @@ class DriverPayrollController extends Controller
         $driver = Driver::findOrFail($id);
        
         $cargos = Cargo::all();
-        $transaction = Transaction::all();        
+        $transaction = Transaction::all(); 
+        $cargonames = Cargo::select('cargoname')->distinct()->get();       
         return view('admin.driver_payroll_create')
         ->with('transaction', $transaction)
         ->with('cargos', $cargos)
+        ->with('cargonames', $cargonames)
         ->with('driver', $driver);
     }
 

@@ -19,8 +19,7 @@ class EmployeeController extends Controller
     public function index()
     {
         
-
-        return view('admin.employee')->with(['employees'=> User::all(), 'schedules'=>Schedule::all(), 'rates'=>Rate::all()]);
+        return view('admin.employee')->with(['employees'=> User::where('id', '!=', 1)->get(), 'schedules'=>Schedule::all(), 'rates'=>Rate::all()]);
     }
 
     /**

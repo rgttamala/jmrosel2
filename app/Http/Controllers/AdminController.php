@@ -26,7 +26,7 @@ class AdminController extends Controller
         $drivers = count(Driver::all());
         $payrolls = Payroll::take(5)->get();
         $driverPayrolls = DriverPayroll::take(5)->get();
-        $transactions = Transaction::take(5)->get();
+        $transactions = Transaction::orderBy('traveldate', 'DESC')->take(5)->get();
         $AllAttendance = count(Attendance::whereAttendance_date(date("Y-m-d"))->get());
         $ontimeEmp = count(Attendance::whereAttendance_date(date("Y-m-d"))->whereStatus('1')->get());
         $latetimeEmp = count(Attendance::whereAttendance_date(date("Y-m-d"))->whereStatus('0')->get());

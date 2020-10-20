@@ -71,7 +71,7 @@
         </td>
 
         <td><select name="cargo[]" id="cargo" style="width: 120px" class="form-control" required> 
-          @foreach ($cargos as $cargo)
+          @foreach ($cargonames as $cargo)
         <option value="{{$cargo->cargoname}}">{{$cargo->cargoname}}</option>
           @endforeach
             </select>
@@ -107,7 +107,7 @@
             
             '<td><input type="date" style="width: 170px" name="tripdate[]" id="tripdate" class="form-control" required></td>'+
             '<td><select name="trip[]" id="trip" class="form-control" required> @foreach ($cargos as $cargo) <option value="{{$cargo->origin}} to {{$cargo->destination}}">{{$cargo->origin}} to {{$cargo->destination}}</option>@endforeach</select></td>'+
-            '<td><select name="cargo[]" id="cargo" class="form-control" required> @foreach ($cargos as $cargo) <option value="{{$cargo->cargoname}}">{{$cargo->cargoname}}</option> @endforeach</select></td>'+
+            '<td><select name="cargo[]" id="cargo" style="width: 120px" class="form-control" required> @foreach ($cargonames as $cargo) <option value="{{$cargo->cargoname}}">{{$cargo->cargoname}}</option> @endforeach</select></td>'+
             '<td><input type="text" name="rate[]" id="rate" class="form-control" value="0" required></td>'+ 
             '<td><input type="number" name="cashadvance[]" id="rate" class="form-control" value="0" ></td>'+ 
             '<td><input style="width: 170px" type="date" name="datecashadvance[]" id="datecashadvance" class="form-control" ></td>'+ 

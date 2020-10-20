@@ -28,8 +28,6 @@
                     <a href="{{route('transaction.reports')}}" class="btn btn-warning btn-sm" target="_blank">Transaction Reports</a>
                            
                     </div>
-
-                    
                     <div>
                         <table id="example2" class="table table-bordered>">
                             <thead>
@@ -61,7 +59,8 @@
                                 <th>Docs</th>
                                 <th>Trucking</th>
                                 <th>Client Rate</th>
-                                <th style="text-align: center">50%</th>
+                                <th style="text-align: cent
+                                er">50%</th>
                                 <th>Full Payment</th>
                                 <th>Client Balance</th>
                                 <th>Subcon Rate</th>
@@ -79,7 +78,9 @@
 
                              <tr>
                                 <td>{{ date('M-d-yy', strtotime($transaction->traveldate)) }}</td> 
-                                <td>{{$transaction->platenumber}}</td>
+                                <td>
+                                    <a href="#editt{{$transaction->id}}" data-toggle="modal"><i class='fa fa-edit'></i>{{$transaction->platenumber}}</a>
+                                </td>
                                 <td>{{$transaction->cargo->origin}} - {{$transaction->cargo->destination}} ({{$transaction->cargo->cargoname}})</td>
                                 <td>{{$transaction->docs}}</td>
                                 <td>{{$transaction->trucking}}</td>
@@ -156,6 +157,10 @@
 @foreach($transactions as $transaction)
 @include('includes.edit_delete_transactions')
 @endforeach 
+
+@foreach ($transactions as $transaction)
+@include('includes.edit_transactions_info')    
+@endforeach
 
 @include('includes.add_transaction')
 

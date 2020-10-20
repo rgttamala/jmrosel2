@@ -47,9 +47,11 @@ class HelperPayrollController extends Controller
     public function create($id){
         $helper = Helper::findOrFail($id);
         $cargos = Cargo::all();
+        $cargonames = Cargo::select('cargoname')->distinct()->get(); 
         $transaction = Transaction::all();        
         return view('admin.helper_payroll_create')
         ->with('transaction', $transaction)
+        ->with('cargonames', $cargonames)
         ->with('cargos', $cargos)
         ->with('helper', $helper);
     }
@@ -137,6 +139,12 @@ class HelperPayrollController extends Controller
         $helperpayroll = HelperRates::findOrFail($id);
         $payroll = HelperPayroll::all();
 
+        // $helpername = DB::table('helper_payroll')
+        // ->join('helpers', 'helper_payroll.helper_id', 'helpers.id')
+        // ->select('helpers.*')
+        // ->where('helpers.id', $id)
+        // ->get();
+        
        
         $payrolldetails = DB::table('helper_rates')
         ->leftJoin('helper_payroll', 'helper_rates.payroll_id', 'helper_payroll.id')
@@ -146,6 +154,7 @@ class HelperPayrollController extends Controller
 
         return view('admin.helper_payroll_receipt')
         ->with('payrolldetails', $payrolldetails)
+        // ->with('helpername', $helpername)
         ->with('payroll', $payroll)
         ->with('helperpayroll', $helperpayroll);
         

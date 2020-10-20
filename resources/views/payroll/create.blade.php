@@ -13,7 +13,10 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <br><br>
-                        <legend>{{$employee->name}}</legend>
+                            <h6>Employee Name:</h6>
+                        <legend>{{ strtoupper($employee->name) }} </legend>
+                      
+                       
                         </div>
                         <!-- panel preview -->
                         <div class="col-sm-5">
@@ -51,28 +54,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="amount" class="col-sm-3 control-label">Salary</label>
-                                        <div class="col-sm-9">
-                                            @foreach ($rates as $rate)              
-                                        <input type="number" class="form-control" id="salary" name="salary" value="{{$rate->salary}}" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="amount" class="col-sm-3 control-label">SSS</label>
-                                        <div class="col-sm-9">
-                                        <input type="number" class="form-control" id="sss" name="sss" value="{{$rate->sss}}" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="amount" class="col-sm-3 control-label">Philhealth</label>
-                                        <div class="col-sm-9">
-                                        <input type="number" class="form-control" id="philhealth" name="philhealth" value="{{$rate->philhealth}}" readonly>
-                                        </div>
-                                    </div>
-                                    @endforeach
+                                   
                 
                                     <div class="form-group">
                                         <label for="amount" class="col-sm-3 control-label">Deductions</label>
@@ -101,7 +83,54 @@
                                         <div class="col-sm-9">
                                             <input type="date" class="form-control" id="dateissued" name="dateissued" required>
                                         </div>
-                                    </div>   
+                                    </div> 
+                                    
+                                    <div class="form-group" hidden>
+                                       
+                                        <div class="col-sm-9">
+                                            @foreach ($rates as $rate)              
+                                        <input type="number" class="form-control" id="salary" name="salary" value="{{$rate->salary}}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amount" class="col-sm-3 control-label">Salary</label>
+                                        <div class="col-sm-9">
+                                                 <legend>₱{{ number_format ($rate->salary, 2) }}</legend>
+                                        </div>
+                                    </div>
+
+                                   
+
+                                    <div class="form-group" hidden>
+                                       
+                                        <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="sss" name="sss" value="{{$rate->sss}}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amount" class="col-sm-3 control-label">SSS</label>
+                                        <div class="col-sm-9">
+                                                 <legend>₱{{ number_format ($rate->sss, 2) }}</legend>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" hidden>
+                                        <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="philhealth" name="philhealth" value="{{$rate->philhealth}}" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="amount" class="col-sm-3 control-label">Philhealth</label>
+                                        <div class="col-sm-9">
+                                                 <legend>₱{{ number_format ($rate->philhealth, 2) }}</legend>
+                                        </div>
+                                    </div>
+
+                                    @endforeach
+                                    
                                     <div class="form-group">
                                         <div class="col-sm-12 text-right">
                                             <button type="button" class="btn btn-default preview-add-button">

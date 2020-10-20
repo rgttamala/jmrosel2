@@ -48,7 +48,7 @@
                            
                        @endforeach
 
-                       <strong>{{$item->helper_id}}</strong><br>
+                       {{-- <strong>{{$item->helper_id}}</strong><br> --}}
                         Date Issued: <em>{{ date('M-d-yy', strtotime($item->dateissued)) }}</em>
                     </p>
                     <p>
@@ -99,9 +99,10 @@
                         <td></td>
                         <td></td>
                         <td><strong> Rate: </strong></td>
-                        <td><strong>₱{{$cargo->totalrates}}</strong></td>
+                        <td><strong>₱{{ number_format ($cargo->totalrates, 2) }}</strong></td>
                         <td><strong> Total CA:</strong></td>
-                        <td><strong>₱{{$cargo->totalcashadvance}}</strong></td>
+                        <td><strong>₱{{ number_format ($cargo->totalcashadvance, 2) }}</strong></td>
+                       
                       </tr>
                     </tbody>
                   </table>
@@ -116,7 +117,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <pre class="tab">Subtotal:       ₱{{$cargo->subtotal}}</pre>
+                        <pre class="tab">Subtotal:       ₱{{ number_format ($cargo->subtotal, 2) }}</pre>
+                       
                         
                         <pre class="tab">SSS:           -₱{{$cargo->sss}}</pre>
                         
@@ -136,8 +138,9 @@
                         <th scope="col"></th>
                         <th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="col"></th>
                         <th scope="col"></th><th scope="col"></th><th scope="col"></th>
-                     <th> <td style="font-size: 20px"><strong>Total Payroll: ₱ {{$cargo->totalpayroll}}</strong></td></th>
+                     <th> <td style="font-size: 20px"><strong>Total Payroll: ₱{{ number_format ($cargo->totalpayroll, 2) }}</strong></td></th>
                     </tr>
+                    
                      
                     </tbody>
                   </table>

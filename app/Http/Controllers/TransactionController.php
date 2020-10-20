@@ -41,9 +41,11 @@ class TransactionController extends Controller
         ->whereMonth('traveldate', $endMonth)
         ->sum('subcon_balance');   
 
+       
+
         return view('admin.transaction')->with(
             [
-            'transactions'=> Transaction::orderBy('created_at', 'DESC')->get(), 
+            'transactions'=> Transaction::orderBy('traveldate', 'DESC')->get(), 
             'cargos'=>Cargo::all(),
             'clientRate' => $clientRate,
             'clientBalance' => $clientBalance,
@@ -110,6 +112,17 @@ class TransactionController extends Controller
     public function update(Request $request, Transaction $transaction)
     {
 
+
+        $transaction->traveldate = $request->traveldate;
+        $transaction->cargo_id = $request->cargo;
+        $transaction->docs = $request->docs;
+        $transaction->trucking = $request->trucking;
+        $transaction->platenumber = $request->platenumber;
+        $transaction->client_rate = $request->client_rate;
+        $transaction->subcon_rate = $request->subcon_rate;
+        $transaction->remarks = $request->remarks;
+        $transaction->save();
+        
         $transaction->client_partial = $request->client_partial;
         $transaction->client_partial_date = $request->client_partial_date;
         $transaction->client_partial_amount = $request->client_partial_amount;

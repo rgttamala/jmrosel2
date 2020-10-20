@@ -55,7 +55,7 @@
 
                         <div class="col-sm-9">
                             <select class="form-control" id="driver" name="driver" required>
-                                <option value="" selected>- Select -</option>
+                                <option value="" selected></option>
                                 @foreach($drivers as $driver)
                                 <option value="{{$driver->id}}">{{$driver->drivername}}</option>
                                 @endforeach

@@ -18,8 +18,40 @@
     @page {
      size: auto;
  }
+
  </style>
+
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    tr:hover {background-color: lightblue;}
+    </style>
+
 <body>
+    
    <br>
    <hr>
         <h1 class="display-10" style="margin-left: 1%">Transaction Reports</h1>
@@ -34,7 +66,7 @@
         <br>
 
         <div>
-            <table id="example2" class="table table-bordered>">
+            <table id="example2" class="table table-bordered hoverTable">
                 <thead>
                     <tr>
                   
@@ -91,7 +123,7 @@
                 @endif
 
                 @if ($transaction->client_partial == 'Unpaid')
-                <td style="color: red">✗</td> 
+                <td style="color: red">[✗]</td> 
                 @endif
 
                 @if ($transaction->client_full == 'Paid')
@@ -99,7 +131,7 @@
                     @endif
 
                 @if ($transaction->client_full == 'Unpaid')
-                <td style="color: red">✗</td> 
+                <td style="color: red">[✗]</td> 
                 @endif
 
 

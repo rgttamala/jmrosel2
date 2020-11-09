@@ -4,6 +4,7 @@ return [
     /*
      * DataTables search options.
      */
+  
     'search'         => [
         /*
          * Smart search will enclose search keyword with wildcard string "%keyword%".

@@ -25,14 +25,17 @@
                     <div class="box-header with-border">
                         <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="{{route('transaction.reports')}}" class="btn btn-warning btn-sm" target="_blank">Transaction Reports</a>
-                           
+                            @if(auth()->user()->rates_id == 1)
+                             <a href="{{route('transaction.reports')}}" class="btn btn-warning btn-sm" target="_blank">Transaction Reports</a>
+                          @endif 
                     </div>
                     <div>
                         <table id="example2" class="table table-bordered>">
                             <thead>
                                 <tr>
-                              
+                                    @if(auth()->user()->rates_id == 1)
+                                   
+                                 
                                 <th>Client Rate:</th>
                                 <th bgcolor="green" style="color: white">₱{{ number_format($clientRate, 2) }}</th>
                                 <th></th>
@@ -43,11 +46,14 @@
                                 <th>Subcon Balance: </th>
                                 <th bgcolor="skyblue">₱{{ number_format($subconBalance, 2) }}</th>
                                 <th></th>
+                                @endif
                                 </tr>
                             </thead>
                         </table>
                     </div>
-                    
+
+                     
+
                     <div class="box-body">
                         
                         <table id="example1" class="table table-bordered>">
@@ -58,6 +64,7 @@
                                 <th>Cargo</th>
                                 <th>Docs</th>
                                 <th>Trucking</th>
+                                @if(auth()->user()->rates_id == 1)
                                 <th>Client Rate</th>
                                 <th style="text-align: cent
                                 er">50%</th>
@@ -67,8 +74,11 @@
                                 <th style="text-align: center">50%</th>
                                 <th>Full Payment</th>
                                 <th>Subcon Balance</th>
+                                @endif
                                 <th>Remarks</th>
+                                @if(auth()->user()->rates_id == 1)
                                 <th>Tools</th>
+                                @endif
                             </thead>
                             <tbody>
                                 
@@ -84,6 +94,7 @@
                                 <td>{{$transaction->cargo->origin}} - {{$transaction->cargo->destination}} ({{$transaction->cargo->cargoname}})</td>
                                 <td>{{$transaction->docs}}</td>
                                 <td>{{$transaction->trucking}}</td>
+                        @if(auth()->user()->rates_id == 1)
                                 <td>₱{{ number_format ($transaction->client_rate, 2) }}</td>
 
                             @if ($transaction->client_partial == 'Paid')
@@ -138,10 +149,12 @@
                         @if ($transaction->subcon_full == 'Unpaid')
                             <td>₱{{ number_format ($transaction->subcon_balance, 2) }}</td>
                         @endif
-
+                    @endif
                         <td>{{$transaction->remarks}}</td>  
                                 <td>
+                                    @if(auth()->user()->rates_id == 1)
                                     <a href="#edit{{$transaction->id}}" data-toggle="modal" class="btn btn-success btn-sm edit"><i class='fa fa-edit'></i>Payments</a>
+                                    @endif
                                 </td>
                              </tr>
                              @endforeach

@@ -130,7 +130,6 @@ class DriverPayrollController extends Controller
         $driverpayroll = DriverPayroll::findOrFail($id);
         $payroll = Deduction::all();
 
-       
         $payrolldetails = DB::table('driver_rates')
         ->leftJoin('driver_payroll', 'driver_rates.payroll_id', 'driver_payroll.id')
         ->select('driver_payroll.*','driver_rates.*')

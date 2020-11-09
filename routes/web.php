@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return redirect('/admin');
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -20,6 +24,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'Role'], 'roles' => ['admin']], function () {
     Route::get('/transactions/reports', 'TransactionController@transactionReports')->name('transaction.reports');
     Route::resource('/transactions', 'TransactionController');
+    Route::resource('/trans', 'TransController');
     Route::POST('/transactions/getTransaction','TransactionController@getTransaction');
     Route::resource('/employees', 'EmployeeController');
     Route::resource('/rates', 'RateController');

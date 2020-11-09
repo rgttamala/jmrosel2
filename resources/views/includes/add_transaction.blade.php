@@ -65,7 +65,9 @@
                                 <label for="rate" class="col-sm-3 control-label">Client Rate</label>
         
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="client_rate" name="client_rate" required>
+                                    <input type="number" step="any" class="form-control" id="client_rate" name="client_rate" required>
+                                    
+
                                 </div>
                             </div>
 
@@ -117,7 +119,7 @@
                                 <label for="rate" class="col-sm-3 control-label">Subcon Rate</label>
         
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="subcon_rate" name="subcon_rate" required>
+                                    <input type="number" step="any" class="form-control" id="subcon_rate" name="subcon_rate" required>
                                 </div>
                             </div>
 

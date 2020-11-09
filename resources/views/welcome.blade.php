@@ -76,6 +76,10 @@
 </head>
 
 <body>
+
+    <iframe width="100%" height="100%" src="/landing_page/index.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+{{--     
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
         <div class="top-right links">
@@ -132,7 +136,7 @@
             }
             document.getElementById("clock").innerHTML = hrs + ':' + min + ':' + sec + ' ' + en;
         }
-    </script>
+    </script> --}}
 </body>
 
 </html>

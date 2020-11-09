@@ -89,7 +89,7 @@
         <input type="date" name="datecashadvance[]" style="width: 170px" id="datecashadvance" class="form-control"> 
     </td>
         <td>
-           <a href="javascript:;" class="btn btn-danger deleteRow">- </a>
+          
         </td>
       </tr>  
     </tbody>    
@@ -111,7 +111,7 @@
             '<td><input type="text" name="rate[]" id="rate" class="form-control" value="0" required></td>'+ 
             '<td><input type="number" name="cashadvance[]" id="rate" class="form-control" value="0" ></td>'+ 
             '<td><input style="width: 170px" type="date" name="datecashadvance[]" id="datecashadvance" class="form-control" ></td>'+ 
-            '<td><a href="javascript:;" class="btn btn-danger deleteRow">- </a></td>'+
+           
         '</tr>';
 
         $('tbody').append(tr);

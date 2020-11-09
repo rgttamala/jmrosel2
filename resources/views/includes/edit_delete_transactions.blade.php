@@ -70,7 +70,7 @@
                             <label for="rate" class="col-sm-3 control-label">Client Rate</label>
     
                             <div class="col-sm-9">
-                            <input type="number" class="form-control" id="client_rate" name="client_rate" value="{{$transaction->client_rate}}" required>
+                            <input type="number" class="form-control" id="client_rate" step="any" name="client_rate" value="{{$transaction->client_rate}}" required>
                             </div>
                         </div>
     
@@ -79,7 +79,7 @@
                             <label for="rate" class="col-sm-3 control-label">Subcon Rate</label>
     
                             <div class="col-sm-9">
-                            <input type="number" class="form-control" id="subcon_rate" name="subcon_rate" value="{{$transaction->subcon_rate}}" required>
+                            <input type="number" class="form-control" id="subcon_rate" step="any" name="subcon_rate" value="{{$transaction->subcon_rate}}" required>
                             </div>
                         </div>
     
@@ -123,7 +123,7 @@
                         <label for="rate" class="col-sm-3 control-label">Client CA Amount</label>
                     
                         <div class="col-sm-9">
-                        <input type="number" class="form-control" id="client_partial_amount" name="client_partial_amount" value="{{$transaction->client_partial_amount}}">
+                        <input type="number" class="form-control" step="any" id="client_partial_amount" name="client_partial_amount" value="{{$transaction->client_partial_amount}}">
                         </div>
                     </div>
                     
@@ -164,10 +164,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="rate" class="col-sm-3 control-label">Client Full Amount</label>
+                        <label for="rate"  class="col-sm-3 control-label">Client Full Amount</label>
                     
                         <div class="col-sm-9">
-                        <input type="number" class="form-control" id="client_full_amount" name="client_full_amount" value="{{$transaction->client_full_amount}}">
+                        <input type="number" step="any" class="form-control" id="client_full_amount" name="client_full_amount" value="{{$transaction->client_full_amount}}">
                         </div>
                     </div>
                     
@@ -191,21 +191,19 @@
                     
                         <div class="col-sm-9">
 
-                            @if ($transaction->client_partial == 'Unpaid')
 
+                            @if ($transaction->subcon_partial == 'Unpaid')
                             <select class="form-control" id="subcon_partial" name="subcon_partial" required>
                                 <option value="Unpaid" selected>Unpaid 50%</option>
                                 <option value="Paid">Paid 50%</option>
                             </select>
 
-                            @endif
-
-                            @if ($transaction->client_partial == 'Paid')
-                                 <select class="form-control" id="subcon_partial" name="subcon_partial" required>
-                                <option value="Unpaid">Unpaid 50%</option>
+                            @else
+                            <select class="form-control" id="subcon_partial" name="subcon_partial" required>
                                 <option value="Paid" selected>Paid 50%</option>
+                                <option value="Unpaid">Unpaid 50%</option>
                             </select>
-
+                                
                             @endif
 
                         </div>
@@ -217,7 +215,7 @@
                         <label for="rate" class="col-sm-3 control-label">Subcon CA Amount</label>
                     
                         <div class="col-sm-9">
-                        <input type="number" class="form-control" id="subcon_partial_amount" name="subcon_partial_amount" value="{{$transaction->subcon_partial_amount}}">
+                        <input type="number" step="any" class="form-control" id="subcon_partial_amount" name="subcon_partial_amount" value="{{$transaction->subcon_partial_amount}}">
                         </div>
                     </div>
                     
@@ -262,7 +260,7 @@
                         <label for="rate" class="col-sm-3 control-label">Subcon Full Amount</label>
                     
                         <div class="col-sm-9">
-                        <input type="number" class="form-control" id="subcon_full_amount" name="subcon_full_amount" value="{{$transaction->subcon_full_amount}}">
+                        <input type="number" step="any" class="form-control" id="subcon_full_amount" name="subcon_full_amount" value="{{$transaction->subcon_full_amount}}">
                         </div>
                     </div>
                     

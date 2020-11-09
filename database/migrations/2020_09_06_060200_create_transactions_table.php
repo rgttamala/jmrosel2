@@ -35,7 +35,7 @@ class CreateTransactionsTable extends Migration
             $table->decimal('subcon_full_amount')->nullable();
             $table->date('subcon_full_date')->nullable();
             $table->decimal('subcon_balance')->nullable();
-            $table->integer('subcon_rate');
+            $table->decimal('subcon_rate');
             $table->string('remarks')->nullable();
             $table->timestamps();
         });

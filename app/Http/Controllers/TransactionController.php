@@ -112,7 +112,6 @@ class TransactionController extends Controller
     public function update(Request $request, Transaction $transaction)
     {
 
-
         $transaction->traveldate = $request->traveldate;
         $transaction->cargo_id = $request->cargo;
         $transaction->docs = $request->docs;
